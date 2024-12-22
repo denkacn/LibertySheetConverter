@@ -14,6 +14,10 @@ namespace LibertySheetConverter.Runtime.Models
         public string LibsSavePath { get; set; } = "GeneratedLibs";
         public string LibsExtension { get; set; } = ".dll";
         
+        public bool IsCreateClasses { get; set; } = true;
+        public bool IsCreateJson { get; set; } = true;
+        public bool IsCreateLibs { get; set; } = true;
+        
         //google
         public string ApplicationName { get; set; }
         public string PathToCredentials { get; set; }

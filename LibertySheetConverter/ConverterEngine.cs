@@ -104,10 +104,13 @@ namespace LibertySheetConverter
                     var classCode = _codeGeneratorProvider.Generate(configuration.ConfigurationName,
                         configuration.DataContainer.Fields);
 
-                    await _storageProvider.Save(_context.SettingData.VarsData.ClassSavePath,
-                        configuration.ConfigurationName,
-                        _context.SettingData.VarsData.ClassExtension, classCode);
-
+                    if (_context.SettingData.VarsData.IsCreateClasses)
+                    {
+                        await _storageProvider.Save(_context.SettingData.VarsData.ClassSavePath,
+                            configuration.ConfigurationName,
+                            _context.SettingData.VarsData.ClassExtension, classCode);
+                    }
+                    
                     _context.RuntimeData.GeneratedCode.Add(configuration.ConfigurationName, classCode);
                 }
             }
