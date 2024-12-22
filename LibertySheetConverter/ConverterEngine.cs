@@ -104,7 +104,7 @@ namespace LibertySheetConverter
                     var classCode = _codeGeneratorProvider.Generate(configuration.ConfigurationName,
                         configuration.DataContainer.Fields);
 
-                    if (_context.SettingData.VarsData.IsCreateClasses)
+                    if (!_context.SettingData.VarsData.IsCreateClasses)
                     {
                         await _storageProvider.Save(_context.SettingData.VarsData.ClassSavePath,
                             configuration.ConfigurationName,
@@ -167,6 +167,8 @@ namespace LibertySheetConverter
         {
             try
             {
+                if (!_context.SettingData.VarsData.IsCreateJson) return;
+                
                 foreach (var filledConfiguration in _context.RuntimeData.FilledConfigurationsData)
                 {
                     var configurationString = _configurationsGeneratorProvider.GenerateConfigurationString(filledConfiguration);

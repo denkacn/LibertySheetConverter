@@ -55,6 +55,8 @@ using System.Reflection;
         
         protected void SaveLibrary(CSharpCompilation compilation)
         {
+            if (!_context.SettingData.VarsData.IsCreateLibs) return;
+            
             var outputPath = Path.Combine(
                 _context.SettingData.BaseDirectory,
                 _context.SettingData.VarsData.LibsSavePath,
