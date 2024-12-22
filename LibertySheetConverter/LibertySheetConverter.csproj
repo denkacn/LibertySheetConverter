@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <Nullable>enable</Nullable>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Google.Apis.Sheets.v4" Version="1.68.0.3624" />
+      <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.12.0" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="AuroraDataContainer">
+        <HintPath>..\Libs\AuroraDataContainer.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>
