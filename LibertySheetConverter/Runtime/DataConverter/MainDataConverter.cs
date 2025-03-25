@@ -40,6 +40,11 @@ namespace LibertySheetConverter.Runtime.DataConverter
 
             else return value;
         }
+        
+        public List<T> ConvertList<T>(string value)
+        {
+            return JsonConvert.DeserializeObject<List<T>>(value);
+        }
 
         private bool TryConvertByCustomDataParser(string value, string type, out object convertedObject)
         {
@@ -54,11 +59,6 @@ namespace LibertySheetConverter.Runtime.DataConverter
             
             convertedObject = null;
             return false;
-        }
-
-        private List<T> ConvertList<T>(string value)
-        {
-            return JsonConvert.DeserializeObject<List<T>>(value);
         }
     }
 }

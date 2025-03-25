@@ -12,16 +12,12 @@ namespace LibertySheetConverter.Runtime.Providers.Compiler
 {
     public class CompilerProviderWithPathToDependencies : CompilerProviderBase
     {
-        //private const string AuroraDataContainerPath = "AuroraDataContainer.dll";
-
         public CompilerProviderWithPathToDependencies(ConverterEngineContext context) : base(context){}
 
         public override CompileResultData Compile(Dictionary<string, string> codeLibrary)
         {
             var syntaxTrees = GetSyntaxTrees(codeLibrary);
             var references = GetMetadataReferences();
-            
-            //references.Add(MetadataReference.CreateFromFile(GetLibraryFullPath(AuroraDataContainerPath)));
             
             foreach (var libPath in _context.SettingData.VarsData.CustomLibsPath)
             {

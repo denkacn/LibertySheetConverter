@@ -104,7 +104,7 @@ namespace LibertySheetConverter
                     var classCode = _codeGeneratorProvider.Generate(configuration.ConfigurationName,
                         configuration.DataContainer.Fields);
 
-                    if (!_context.SettingData.VarsData.IsCreateClasses)
+                    if (_context.SettingData.VarsData.IsCreateClasses)
                     {
                         await _storageProvider.Save(_context.SettingData.VarsData.ClassSavePath,
                             configuration.ConfigurationName,
@@ -146,6 +146,7 @@ namespace LibertySheetConverter
                     {
                         var type = _context.RuntimeData.CompileResultData.Assembly.GetType(
                             _context.SettingData.VarsData.MainNameSpace + "." + configuration.ConfigurationName);
+                        
                         var filledConfigurationData = _dataFillProvider.Fill(type, configuration.DataContainer);
 
                         _context.RuntimeData.FilledConfigurationsData.Add(
